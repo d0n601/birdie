@@ -437,7 +437,7 @@
             </child>
             <child>
               <object class="GtkButton" id="snooze">
-                <property name="label" translatable="yes">Snooze for 3 minutes</property>
+                <property name="label" translatable="yes">Snooze for 15 minutes</property>
                 <property name="visible">True</property>
                 <property name="sensitive">False</property>
                 <property name="can-focus">True</property>

@@ -43,8 +43,8 @@ class AlarmApp(Gtk.Application):
   alarm_testing = False
   prev_alarm = None
   event_handler = None
-  snooze_short = 3
-  snooze_long = 10
+  snooze_short = 15
+  snooze_long = 20
 
   def __init__(self, application_id):
     Gtk.Application.__init__(self, application_id=application_id)
@@ -334,7 +334,7 @@ class AlarmApp(Gtk.Application):
     content = f"""[Unit]
 Description=User Wake Up Action
 [Service]
-ExecStart=gapplication launch {APP_ID} 
+ExecStart=gapplication launch {APP_ID}
 """
     with open(user_folder + "/wake-up.service", "w") as f:
       f.write(content)
@@ -380,7 +380,7 @@ if USE_MPRIS:
   from mpris_server.base import Artist, Album
 
   class MyAppAdapter(MprisAdapter):
-      
+
       def can_quit(self) -> bool:
           return False
 
@@ -392,7 +392,7 @@ if USE_MPRIS:
 
       def can_fullscreen(self):
           return False
-      
+
       def get_current_position(self) -> Microseconds:
           return int(0)
 
@@ -494,7 +494,7 @@ if USE_MPRIS:
       self.on_playpause()
       self.on_options()
       self.on_ended()
-    
+
   my_adapter = MyAppAdapter()
   mpris = Server(name=APP_NAME, adapter=my_adapter)
   mpris.publish()
